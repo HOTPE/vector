@@ -1,0 +1,33 @@
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <string>
+using namespace std;
+int a[100001];
+bool sodacbiet(string n)
+{
+	vector<int>arr;
+	for (char c : n)
+	{
+		arr.push_back(c - '0');
+	}
+	for (int i = 0; i < arr.size(); i++)
+	{
+		for (int j = i + 1; j < arr.size(); j++)
+		{
+			if (arr[i] == arr[j])
+				return false;
+		}
+	}
+	return true;
+}
+int main()
+{
+	string n;
+	getline(cin, n);
+	if (sodacbiet(n))
+		cout << "TRUE" << endl;
+	else
+		cout << "FALSE" << endl;
+	return 0;
+}
