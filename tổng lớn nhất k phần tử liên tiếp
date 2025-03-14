@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int maxarr(vector <int> arr, int k)
+{
+	int sum = 0, max = 0;
+	for (int i = 0; i <( arr.size() - k) + 1; i++)
+	{
+		sum = 0;
+		for (int j = i; j < (k + i); j++)
+		{
+			sum += arr[j];
+		}
+		if (sum > max)
+			max = sum;
+	}
+	return max;
+}
+int main()
+{
+	vector <int> v1;
+	int n,tmp;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> tmp;
+		v1.push_back(tmp);
+	}
+	int k;
+	cin >> k;
+	cout<<maxarr(v1, k);
+	return 0;
+}
